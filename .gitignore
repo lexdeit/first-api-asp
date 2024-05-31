@@ -111,3 +111,5 @@ PublishProfiles/
 __pycache__/
 *.pyc
 GameStore.db
+GameStore.db-wal
+GameStore.db-shm
