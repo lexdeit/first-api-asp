@@ -16,7 +16,7 @@ public static class GameMapping
         };
     }
 
-    public static GameDto ToDto(this Game game)
+    public static GameSummaryDto ToGameSummaryDto(this Game game)
     {
         return new(
                        game.Id,
@@ -25,5 +25,28 @@ public static class GameMapping
                        game.Price,
                        game.ReleaseDate
                    );
+    }
+
+    public static GameDetailsDto ToGameDetailsDto(this Game game)
+    {
+        return new(
+                       game.Id,
+                       game.Name,
+                       game.GenreId,
+                       game.Price,
+                       game.ReleaseDate
+                   );
+    }
+
+    public static Game ToEntity(this UpdateGameDto game, int Id)
+    {
+        return new Game()
+        {
+            Id = Id,
+            Name = game.Name,
+            GenreId = game.GenreId,
+            Price = game.Price,
+            ReleaseDate = game.ReleaseDate
+        };
     }
 }
